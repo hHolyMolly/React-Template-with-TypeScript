@@ -544,7 +544,8 @@ body._lock-scroll {
   background-color: transparent;
 }
 .header-dropdown__body {
-  row-gap: 10px;
+  /* Если меньше контейнера */
+  gap: 10px;
   /* Если меньше контейнера */
   padding: 10px;
   margin-top: 10px;
@@ -570,6 +571,11 @@ body._lock-scroll {
 }
 @media (max-width: 1400px) {
   .header-dropdown__body {
+    gap: calc(0px + 10 * ((100vw - 320px) / 1080));
+  }
+}
+@media (max-width: 1400px) {
+  .header-dropdown__body {
     padding: calc(5px + 5 * ((100vw - 320px) / 1080));
   }
 }
@@ -581,6 +587,11 @@ body._lock-scroll {
 @media (max-width: 1400px) {
   .header-dropdown__body {
     max-height: calc(420px + 30 * ((100vw - 320px) / 1080));
+  }
+}
+@media (max-height: 600.2px) {
+  .header-dropdown__body {
+    max-height: 200px;
   }
 }
 @media (any-hover: hover) {
@@ -698,8 +709,15 @@ body._lock-scroll {
 .footer-main__logo img {
   max-width: 100%;
 }
-.footer-main__logo:not(:last-child) {
-  margin-right: 15px;
+@media (min-width: 480.2px) {
+  .footer-main__logo:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+@media (max-width: 480.2px) {
+  .footer-main__logo:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 @media (any-hover: hover) {
   .footer-main__logo {
@@ -707,11 +725,6 @@ body._lock-scroll {
   }
   .footer-main__logo:hover {
     color: #016905;
-  }
-}
-@media (max-width: 480.2px) {
-  .footer-main__logo:not(:last-child) {
-    margin-bottom: 15px;
   }
 }
 .footer-menu__list {
