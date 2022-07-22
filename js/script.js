@@ -1,5 +1,5 @@
 //< " ПОДКЛЮЧЕНИЕ JS КОМПОНЕНТОВ " >=============================================================================================================>//
-/* function dynamicAdaptive() {
+function dynamicAdaptive() {
 	function DynamicAdapt(type) {
 		this.type = type;
 	}
@@ -142,7 +142,7 @@
 	da.init();
 
 }
-dynamicAdaptive(); // ДИНАМИЧЕСКИЙ АДАПТИВ */
+dynamicAdaptive(); // ДИНАМИЧЕСКИЙ АДАПТИВ
 
 /* function scrollHeader() {
 	const header = document.querySelector('.header');
