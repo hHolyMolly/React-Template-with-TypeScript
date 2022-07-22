@@ -156,7 +156,71 @@
    </div>
 </header>
          <main class="page">
-            <section class="page__info-block info-block">
+            <section class="page__main-block main-block">
+               <div class="_container">
+                  <div class="main-block__body">
+                     <form class="main-block__form" id="main-block__form" method="get" action="#">
+                        <div class="main-block__search main-block-search field">
+                           <div class="main-block-search__content">
+                              <div class="field__item">
+                                 <div class="main-block-search__label field__label">Адрес должника</div>
+                                 <input class="main-block-search__input main-block__input field__input field__input_big"
+                                    name="q" type="text" placeholder="Введите адрес должника, по которому найти суд">
+                              </div>
+                              <button class="main-block-search__btn _btn" disabled type="submit">
+                                 Поиск
+                              </button>
+                           </div>
+                        </div>
+                        <div class="main-block__show main-block-show">
+                           <input class="main-block-show__checkbox" id="main-block-show__checkbox" type="checkbox">
+                           <label for="main-block-show__checkbox" class="main-block-show__label">
+                              Показать дополнительные настройки
+                           </label>
+                        </div>
+                        <div class="main-block__options main-block-options" style="display: none;">
+                           <div class="main-block-options__body">
+                              <div class="main-block-options__items">
+                                 <div class="main-block-options__item">
+                                    <div class="main-block-options__label field__label">
+                                       Категория суда
+                                    </div>
+                                    <input type="text"
+                                       class="main-block-options__input main-block__input field__input field__input_little"
+                                       disabled name="category" placeholder="Категория">
+                                 </div>
+                                 <div class="main-block-options__item">
+                                    <div class="main-block-options__label field__label">
+                                       Наименование суда
+                                    </div>
+                                    <input type="text"
+                                       class="main-block-options__input main-block__input field__input field__input_little"
+                                       name="name" placeholder="Наименование">
+                                 </div>
+                                 <div class="main-block-options__item">
+                                    <div class="main-block-options__label field__label">
+                                       Адрес суда
+                                    </div>
+                                    <input type="text"
+                                       class="main-block-options__input main-block__input field__input field__input_little"
+                                       name="address" placeholder="Адрес">
+                                 </div>
+                                 <div class="main-block-options__item">
+                                    <div class="main-block-options__label field__label">
+                                       Подсудность
+                                    </div>
+                                    <input type="text"
+                                       class="main-block-options__input main-block__input field__input field__input_little"
+                                       name="Jurisdiction" placeholder="Подсудность">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </section>
+            <section class="page__info-block info-block" style="display: block;">
                <div class="_container">
                   <div class="info-block__body">
                      <div class="info-block__text-block">

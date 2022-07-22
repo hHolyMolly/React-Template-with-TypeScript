@@ -200,6 +200,8 @@ if (isMobile.any()) {
 	document.body.classList.add("_pc");
 }
 
+//< " СКРИПТЫ " >=============================================================================================================>//
+
 function actionsHeader() {
 
 	function burgerHeader() {
@@ -248,3 +250,59 @@ function actionsHeader() {
 
 }
 actionsHeader()
+
+//< " СКРИПТЫ " >=============================================================================================================>//
+
+function actionsMainBlock() {
+	const searchSend = document.querySelector(".main-block-search__btn");
+
+	function searchValid() {
+		const itemInpt = document.querySelectorAll(".main-block__input");
+
+		if (itemInpt) {
+			itemInpt.forEach(inpt => {
+				inpt.addEventListener("input", function () {
+					if (inpt.value.length) {
+						searchSend.removeAttribute("disabled");
+					} else {
+						searchSend.setAttribute("disabled", "disabled");
+					}
+				});
+			});
+		}
+	}
+	searchValid()
+
+	function mainSwitch() {
+		const optionsSwitch = document.querySelector('.main-block-show__checkbox');
+		const optionsContent = document.querySelector(".main-block-options");
+
+		if (optionsSwitch && optionsContent) {
+			optionsSwitch.addEventListener('change', function () {
+				if (optionsSwitch.checked) {
+					optionsContent.style.display = "flex";
+					document.querySelector(".main-block-options__body").append(searchSend);
+				} else {
+					optionsContent.style.display = "none";
+					document.querySelector(".main-block-search__content").append(searchSend);
+				}
+			});
+		}
+	}
+	mainSwitch()
+
+	function mainForm() {
+		const form = document.getElementById("main-block__form");
+
+		if (form) {
+			form.addEventListener("submit", function (e) {
+				document.querySelector(".info-block").style.display = "none";
+
+				e.preventDefault();
+			});
+		}
+	}
+	mainForm()
+
+}
+actionsMainBlock()
