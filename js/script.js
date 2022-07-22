@@ -210,6 +210,7 @@ function actionsHeader() {
 			menuBtn.addEventListener("click", function () {
 				menuBtn.classList.toggle("_active");
 				menuBody.classList.toggle("_active");
+				document.body.classList.toggle("_lock-scroll");
 			});
 
 			const dropdownBtn = document.querySelector(".header-dropdown__btn");
@@ -218,6 +219,7 @@ function actionsHeader() {
 				dropdownBtn.addEventListener("click", function () {
 					menuBtn.classList.remove("_active");
 					menuBody.classList.remove("_active");
+					document.body.classList.remove("_lock-scroll");
 				})
 			}
 		}

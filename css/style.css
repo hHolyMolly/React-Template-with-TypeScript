@@ -371,6 +371,9 @@ body._lock-scroll {
     font-size: calc(26px + 10 * ((100vw - 320px) / 1080));
   }
 }
+.header__logo img {
+  max-width: 100%;
+}
 @media (any-hover: hover) {
   .header__logo {
     transition: color 0.2s ease 0s;
@@ -691,6 +694,9 @@ body._lock-scroll {
   .footer-main__logo {
     font-size: calc(26px + 10 * ((100vw - 320px) / 1080));
   }
+}
+.footer-main__logo img {
+  max-width: 100%;
 }
 .footer-main__logo:not(:last-child) {
   margin-right: 15px;
