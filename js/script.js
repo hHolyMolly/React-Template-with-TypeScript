@@ -256,7 +256,7 @@ actionsHeader()
 function actionsMainBlock() {
 	const searchSend = document.querySelector(".main-block-search__btn");
 
-	function searchValid() {
+	function formValid() {
 		const itemInpt = document.querySelectorAll(".main-block__input");
 
 		if (itemInpt) {
@@ -271,7 +271,7 @@ function actionsMainBlock() {
 			});
 		}
 	}
-	searchValid()
+	formValid()
 
 	function mainSwitch() {
 		const optionsSwitch = document.querySelector('.main-block-show__checkbox');
@@ -284,7 +284,7 @@ function actionsMainBlock() {
 					document.querySelector(".main-block-options__body").append(searchSend);
 				} else {
 					optionsContent.style.display = "none";
-					document.querySelector(".main-block-search__content").append(searchSend);
+					document.querySelector(".main-block-search__inner").append(searchSend);
 				}
 			});
 		}
@@ -297,12 +297,72 @@ function actionsMainBlock() {
 		if (form) {
 			form.addEventListener("submit", function (e) {
 				document.querySelector(".info-block").style.display = "none";
+				document.querySelector(".catalog").style.display = "block";
 
 				e.preventDefault();
 			});
 		}
 	}
 	mainForm()
+
+	function mySelect() {
+		const itemSelect = document.querySelectorAll("[data-select]");
+
+		if (itemSelect) {
+			function showSelect() {
+				itemSelect.forEach(select => {
+					select.addEventListener("click", function (e) {
+						const elementTarget = e.target;
+
+						if (elementTarget.closest(".select__btn")) {
+							elementTarget.closest(".select").querySelector(".select__inner").classList.toggle("_active");
+							elementTarget.closest(".select").querySelector(".select__btn").classList.toggle("_active");
+						}
+					});
+
+					function selected() {
+						const listItem = document.querySelectorAll(".options-select__item");
+
+						if (listItem) {
+							listItem.forEach(item => {
+								item.addEventListener("click", function () {
+									if (!item.classList.contains("_active")) {
+										this.classList.add("_active");
+
+										document.querySelector(".options-select__selected").append(this.cloneNode(true));
+										document.querySelector(".options-select__selected .options-select__item").className = "options-select__item options-select__item_remove";
+
+										function removeSelected() {
+											const removeBtn = document.querySelectorAll(".options-select__item_remove");
+
+											removeBtn.forEach(remove => {
+												remove.addEventListener("click", function () {
+													this.remove();
+												});
+											});
+										}
+										removeSelected()
+									} else {
+										this.classList.remove("_active");
+										document.querySelector(".options-select__selected .options-select__item").remove();
+									}
+
+									if (document.querySelector(".options-select__selected").length > 1) {
+										document.querySelector(".options-select__selected-text").style.display = "none";
+									} else {
+										document.querySelector(".options-select__selected-text").style.display = "block";
+									}
+								});
+							});
+						}
+					}
+					selected()
+				});
+			}
+			showSelect()
+		}
+	}
+	mySelect()
 
 }
 actionsMainBlock()
