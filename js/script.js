@@ -332,57 +332,73 @@ function actionsMainBlock() {
 		const zone = document.querySelector(".options-select__selected");
 		const btns = document.querySelectorAll(".options-select__item");
 
-		if (btns && zone) {
-			btns.forEach((btn) => {
-				btn.addEventListener("click", (event) => {
-					const getOff = event.target.getAttribute("data-off");
-					offClass = `.${getOff}`;
-
-					const billet = document.querySelector(".options-select__selected-billet");
-					const offs = document.querySelectorAll(offClass);
-
-					if (offs.length > 0) {
-						offs.forEach((e) => {
-							e.remove();
-						});
-					} else {
-						const copy = billet.cloneNode(true);
-						copy.classList.add(getOff);
-						copy.classList.remove("_hidden");
-						copy.innerHTML = getOff;
-						zone.appendChild(copy);
-					}
-				});
-
-				btn.addEventListener("click", (event) => {
-					const billets = document.querySelectorAll(".options-select__selected-billet");
-
-					billets.forEach((billet) => {
-						billet.addEventListener("click", (event) => {
-							event.target.remove();
-
-							const zoneCheck = document.querySelectorAll(".options-select__selected .options-select__selected-billet");
-							const category = document.querySelector(".options-select__selected-text");
-
-							if (zoneCheck.length > 0) {
-								category.classList.remove("_active");
-							} else {
-								category.classList.add("_active");
-							}
-						});
-					});
-
-					const zoneCheck = document.querySelectorAll(".options-select__selected .billet");
-					const category = document.querySelector(".options-select__selected-text");
-
-					if (zoneCheck.length > 0) {
-						category.classList.remove("_active");
-					} else {
-						category.classList.add("_active");
-					}
-				});
+		btns.forEach((btn) => {
+			btn.addEventListener("click", (event) => {
+				event.target.classList.toggle("_active");
 			});
-		}
+
+			btn.addEventListener("click", (event) => {
+				const getOff = event.target.getAttribute("data-off");
+				offAtt = `[data-unical="${getOff}"]`;
+
+				const billet = document.querySelector(".options-select__selected-billet");
+				const unics = document.querySelectorAll(offAtt);
+
+				if (unics.length > 0) {
+					unics.forEach((e) => {
+						e.remove();
+					});
+				} else {
+					const copy = billet.cloneNode(true);
+
+					copy.setAttribute("data-unical", getOff);
+
+					copy.classList.remove("_hidden");
+					copy.innerHTML = getOff;
+					zone.appendChild(copy);
+				}
+			});
+
+			const searchSend = document.querySelector(".main-block-search__btn");
+
+			btn.addEventListener("click", (event) => {
+				const billets = document.querySelectorAll(".options-select__selected-billet");
+
+				billets.forEach((billet) => {
+					billet.addEventListener("click", (event) => {
+						event.target.remove();
+
+						const getOff = event.target.getAttribute("data-unical");
+						offAtt = `[data-off="${getOff}"]`;
+						const search = document.querySelector(offAtt);
+						search.classList.remove("_active");
+
+						const zoneCheck = document.querySelectorAll(".options-select__selected > .options-select__selected-billet");
+						const category = document.querySelector(".options-select__selected-text");
+
+						if (zoneCheck.length > 1) {
+							category.classList.add("_active");
+							searchSend.removeAttribute("disabled");
+						} else {
+							category.classList.remove("_active");
+							searchSend.setAttribute("disabled", "disabled");
+						}
+					});
+				});
+
+				const zoneCheck = document.querySelectorAll(".options-select__selected > .options-select__selected-billet");
+				const category = document.querySelector(".options-select__selected-text");
+
+				if (zoneCheck.length > 1) {
+					category.classList.add("_active");
+					searchSend.removeAttribute("disabled");
+				} else {
+					category.classList.remove("_active");
+					searchSend.setAttribute("disabled", "disabled");
+				}
+			});
+		});
+
 
 	}
 	mySelect()

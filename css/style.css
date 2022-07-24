@@ -299,7 +299,7 @@ body.ie ._ibg img {
 }
 @media (max-width: 1400px) {
   .field__input_little {
-    font-size: calc(12px + 2 * ((100vw - 320px) / 1080));
+    font-size: calc(13px + 1 * ((100vw - 320px) / 1080));
   }
 }
 .field__input_little::-moz-placeholder {
@@ -337,13 +337,13 @@ body.ie ._ibg img {
 }
 @media (max-width: 1400px) {
   .field__input_little::-moz-placeholder {
-    font-size: calc(12px + 2 * ((100vw - 320px) / 1080));
+    font-size: calc(13px + 1 * ((100vw - 320px) / 1080));
   }
   .field__input_little:-ms-input-placeholder {
-    font-size: calc(12px + 2 * ((100vw - 320px) / 1080));
+    font-size: calc(13px + 1 * ((100vw - 320px) / 1080));
   }
   .field__input_little::placeholder {
-    font-size: calc(12px + 2 * ((100vw - 320px) / 1080));
+    font-size: calc(13px + 1 * ((100vw - 320px) / 1080));
   }
 }
 
@@ -1467,6 +1467,22 @@ body._lock-scroll {
 .options-select__selected-billet._hidden {
   display: none;
 }
+.options-select__selected-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Если меньше контейнера */
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 142.8571428571%;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #D7D7D7;
+}
+@media (max-width: 1400px) {
+  .options-select__selected-text {
+    font-size: calc(13px + 1 * ((100vw - 320px) / 1080));
+  }
+}
 .options-select__selected-text._active {
   display: none;
 }
@@ -1592,7 +1608,7 @@ body._lock-scroll {
 .catalog__mobile {
   gap: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .catalog-mobile__card {
