@@ -211,9 +211,8 @@
                         <div class="main-block__options main-block-options" style="display: none;">
                            <div class="main-block-options__body">
                               <div class="main-block-options__items">
-                                 <div class="main-block-options__item options-select select" data-select>
-                                    <div
-                                       class="main-block-options__label main-block-options__btn field__label select__btn">
+                                 <div class="main-block-options__item options-select">
+                                    <div class="main-block-options__label main-block-options__btn field__label">
                                        Категория суда
                                        <i class="main-block-options__arrow">
                                           <img src="img/icon/arrow.svg" alt="icon-arrow">
@@ -221,20 +220,93 @@
                                     </div>
                                     <div class="options-select__body" name="category">
                                        <ul class="options-select__selected">
-                                          <li class="options-select__selected-text" style="display: block;">
+                                          <li class="options-select__selected-text">
                                              Категория
                                           </li>
+                                          <li class="options-select__selected-billet _hidden"></li>
                                        </ul>
-                                       <div class="options-select__inner select__inner">
+                                       <div class="options-select__inner">
                                           <ul class="options-select__list">
-                                             <li class="options-select__item">
-                                                Пункт 1
+                                             <li class="options-select__item" data-off="AJ">
+                                                Апелляционный суд общей юрисдикции
                                                 <button class="options-select__remove" type="button">
                                                    <span></span>
                                                 </button>
                                              </li>
-                                             <li class="options-select__item">
-                                                Пункт 2
+                                             <li class="options-select__item" data-off="AV">
+                                                Апелляционный военный суд
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="GV">
+                                                Гарнизонный военный суд
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="KJ">
+                                                Кассационный суд общей юрисдикции
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="KV">
+                                                Кассационный военный суд
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="MS">
+                                                Мировой суд (участок)
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="OS">
+                                                Краевой суд, областной суд, верховный суд республики
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="OV">
+                                                Районный суд, городской суд
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="RS">
+                                                Управление судебного департамента в субъекте РФ
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="UD">
+                                                Верховный cуд РФ
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="UM">
+                                                Арбитражные суды субъектов Российской Федерации
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="VS">
+                                                Арбитражные апелляционные суды
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="A">
+                                                Специализированные арбитражные суды
+                                                <button class="options-select__remove" type="button">
+                                                   <span></span>
+                                                </button>
+                                             </li>
+                                             <li class="options-select__item" data-off="AP">
+                                                Арбитражные суды округов (арбитражные кассационные суды)
                                                 <button class="options-select__remove" type="button">
                                                    <span></span>
                                                 </button>
@@ -276,7 +348,7 @@
             </div>
             <section class="page__catalog catalog" style="display: none;">
                <div class="_container">
-                  <div class="catalog__body">
+                  <div class="catalog__body catalog__body_pc">
                      <div class="catalog__column catalog-column">
                         <div class="catalog-column__row">
                            <h3 class="catalog-column__title">
@@ -376,6 +448,11 @@
                         </div>
                      </div>
                   </div>
+                  <div class="catalog__body_mobile">
+                     <div class="catalog__column catalog-column">
+                        123
+                     </div>
+                  </div>
                </div>
             </section>
             <section class="page__info-block info-block" style="display: block;">
@@ -438,6 +515,7 @@
          </div>
       </footer>
    </div>
+   <script src="js/choices.min.js"></script>
    <script src="js/script.js"></script>
 </body>
 

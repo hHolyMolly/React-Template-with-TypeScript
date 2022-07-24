@@ -306,61 +306,84 @@ function actionsMainBlock() {
 	mainForm()
 
 	function mySelect() {
-		const itemSelect = document.querySelectorAll("[data-select]");
 
-		if (itemSelect) {
-			function showSelect() {
-				itemSelect.forEach(select => {
-					select.addEventListener("click", function (e) {
-						const elementTarget = e.target;
+		function showSelect() {
+			const showBtn = document.querySelector(".main-block-options__btn");
+			const selectBody = document.querySelector(".options-select__inner");
 
-						if (elementTarget.closest(".select__btn")) {
-							elementTarget.closest(".select").querySelector(".select__inner").classList.toggle("_active");
-							elementTarget.closest(".select").querySelector(".select__btn").classList.toggle("_active");
-						}
-					});
+			if (showBtn && selectBody) {
+				showBtn.addEventListener("click", function () {
+					showBtn.classList.toggle("_active");
+					selectBody.classList.toggle("_active");
+				});
 
-					function selected() {
-						const listItem = document.querySelectorAll(".options-select__item");
+				document.addEventListener("click", function (e) {
+					const elementTarget = e.target;
 
-						if (listItem) {
-							listItem.forEach(item => {
-								item.addEventListener("click", function () {
-									if (!item.classList.contains("_active")) {
-										this.classList.add("_active");
-
-										document.querySelector(".options-select__selected").append(this.cloneNode(true));
-										document.querySelector(".options-select__selected .options-select__item").className = "options-select__item options-select__item_remove";
-
-										function removeSelected() {
-											const removeBtn = document.querySelectorAll(".options-select__item_remove");
-
-											removeBtn.forEach(remove => {
-												remove.addEventListener("click", function () {
-													this.remove();
-												});
-											});
-										}
-										removeSelected()
-									} else {
-										this.classList.remove("_active");
-										document.querySelector(".options-select__selected .options-select__item").remove();
-									}
-
-									if (document.querySelector(".options-select__selected").length > 1) {
-										document.querySelector(".options-select__selected-text").style.display = "none";
-									} else {
-										document.querySelector(".options-select__selected-text").style.display = "block";
-									}
-								});
-							});
-						}
+					if (!elementTarget.closest(".options-select")) {
+						showBtn.classList.remove("_active");
+						selectBody.classList.remove("_active");
 					}
-					selected()
 				});
 			}
-			showSelect()
 		}
+		showSelect()
+
+		const zone = document.querySelector(".options-select__selected");
+		const btns = document.querySelectorAll(".options-select__item");
+
+		if (btns && zone) {
+			btns.forEach((btn) => {
+				btn.addEventListener("click", (event) => {
+					const getOff = event.target.getAttribute("data-off");
+					offClass = `.${getOff}`;
+
+					const billet = document.querySelector(".options-select__selected-billet");
+					const offs = document.querySelectorAll(offClass);
+
+					if (offs.length > 0) {
+						offs.forEach((e) => {
+							e.remove();
+						});
+					} else {
+						const copy = billet.cloneNode(true);
+						copy.classList.add(getOff);
+						copy.classList.remove("_hidden");
+						copy.innerHTML = getOff;
+						zone.appendChild(copy);
+					}
+				});
+
+				btn.addEventListener("click", (event) => {
+					const billets = document.querySelectorAll(".options-select__selected-billet");
+
+					billets.forEach((billet) => {
+						billet.addEventListener("click", (event) => {
+							event.target.remove();
+
+							const zoneCheck = document.querySelectorAll(".options-select__selected .options-select__selected-billet");
+							const category = document.querySelector(".options-select__selected-text");
+
+							if (zoneCheck.length > 0) {
+								category.classList.remove("_active");
+							} else {
+								category.classList.add("_active");
+							}
+						});
+					});
+
+					const zoneCheck = document.querySelectorAll(".options-select__selected .billet");
+					const category = document.querySelector(".options-select__selected-text");
+
+					if (zoneCheck.length > 0) {
+						category.classList.remove("_active");
+					} else {
+						category.classList.add("_active");
+					}
+				});
+			});
+		}
+
 	}
 	mySelect()
 
