@@ -144,45 +144,6 @@ function dynamicAdaptive() {
 }
 dynamicAdaptive(); // ДИНАМИЧЕСКИЙ АДАПТИВ
 
-/* function scrollHeader() {
-	const header = document.querySelector('.header');
-
-	const callback = function (entries, observer) {
-		if (entries[0].isIntersecting) {
-			header.classList.remove('_scroll');
-		} else {
-			header.classList.add('_scroll');
-		}
-	};
-
-	const headerObserver = new IntersectionObserver(callback);
-	headerObserver.observe(header);
-}
-scrollHeader(); // ДОБАВЛЕНИЕ ХЕДЕРУ КЛАСС ПРИ СКРОЛЛЕ */
-
-/* new Swiper(".swiper", {
-	slidesPerView: 1,
-	spaceBetween: 15,
-	grabCursor: true,
-	loop: true,
-	speed: 800,
-
-	autoplay: {
-		delay: 3500,
-	},
-
-	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev",
-	},
-
-	breakpoints: {
-		767.8: {},
-	}
-});
-
-; // НАСТРОЙКИ СЛАЙДЕРА */
-
 //< " СКРИПТЫ " >=============================================================================================================>//
 
 let isMobile = {
@@ -361,7 +322,7 @@ function actionsMainBlock() {
 
 			const searchSend = document.querySelector(".main-block-search__btn");
 
-			btn.addEventListener("click", (event) => {
+			btn.addEventListener("click", () => {
 				const billets = document.querySelectorAll(".options-select__selected-billet");
 
 				billets.forEach((billet) => {
@@ -398,7 +359,6 @@ function actionsMainBlock() {
 				}
 			});
 		});
-
 
 	}
 	mySelect()
